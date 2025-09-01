@@ -1,18 +1,22 @@
 export const categories = [
     {
         category: "Fresh Fruits",
+        domain: "fruits",
         imgUrl: "/images/cat-1.png"
     },
     {
         category: "Fresh Vegetables",
+        domain: "vegetables",
         imgUrl: "/images/cat-2.png"
     },
     {
         category: "Meat & Fish",
+        domain: "meat",
         imgUrl: "/images/cat-3.png"
     },
     {
         category: "Snacks",
+        domain: "snacks",
         imgUrl: "/images/cat-4.png"
     },
     {
@@ -21,30 +25,37 @@ export const categories = [
     },
     {
         category: "Beauty & Health",
+        domain: "beauty",
         imgUrl: "/images/cat-6.png"
     },
     {
         category: "Bread & Bakery",
+        domain: "bakery",
         imgUrl: "/images/cat-7.png"
     },
     {
         category: "Baking Needs",
+        domain: "baking",
         imgUrl: "/images/cat-8.png"
     },
     {
         category: "Cooking",
+        domain: "cooking",
         imgUrl: "/images/cat-9.png"
     },
     {
         category: "Diabetic Food",
+        domain: "food",
         imgUrl: "/images/cat-10.png"
     },
     {
         category: "Dish Detergents",
+        domain: "detergents",
         imgUrl: "/images/cat-11.png"
     },
     {
         category: "Oil",
+        domain: "oil",
         imgUrl: "/images/cat-12.png"
     }
 ];

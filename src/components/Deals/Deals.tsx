@@ -5,8 +5,8 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Deals = () => {
   return (
-    <div className="w-full flex flex-row justify-between items-center font-poppins px-[200px]">
-      <div className="w-[32.5%] h-[530px] flex flex-col gap-2 relative overflow-hidden rounded-[8px]">
+    <div className="w-full grid lg:grid-cols-3 gap-4 font-poppins px-6 lg:px-[200px]">
+      <div className="h-[530px] flex flex-col gap-2 relative overflow-hidden rounded-[8px]">
         <Image
           src={"/images/deal-1.png"}
           alt="deals"
@@ -25,7 +25,7 @@ const Deals = () => {
         </div>
       </div>
 
-      <div className="w-[32.5%] h-[530] flex flex-col gap-2 relative overflow-hidden rounded-[8px]">
+      <div className="h-[530] flex flex-col gap-2 relative overflow-hidden rounded-[8px]">
         <Image
           src={"/images/deal-2.png"}
           alt="deals"
@@ -45,7 +45,7 @@ const Deals = () => {
           </button>
         </div>
       </div>
-      <div className="w-[33%] h-[530] flex flex-col gap-2 relative rounded-[8px]">
+      <div className="h-[530] flex flex-col gap-2 relative rounded-[8px]">
         <Image src={"/images/deal-3.png"} alt="deals" fill />
         <div className="absolute w-full h-full py-[32px] flex flex-col items-center gap-4 z-10 text-[#1A1A1A]">
           <h4 className="uppercase font-medium text-[14px]">

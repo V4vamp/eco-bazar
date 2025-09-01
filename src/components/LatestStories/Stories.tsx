@@ -7,9 +7,9 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Stories = () => {
   return (
-    <div className="w-full flex flex-col items-center px-[200px] pb-[40px] gap-3 font-poppins">
-      <h2 className="text-[24px] text-[#1A1A1A] font-semibold">Latest News</h2>
-      <div className="w-full grid grid-cols-3 gap-6">
+    <div className="w-full flex flex-col items-center px-6 lg:px-[200px] pb-[40px] gap-3 font-poppins">
+      <h2 className="text-[16px] lg:text-[24px] text-[#1A1A1A] font-semibold">Latest News</h2>
+      <div className="w-full grid lg:grid-cols-3 gap-6">
         {latestNews.map((news) => (
           <div
             key={news.id}

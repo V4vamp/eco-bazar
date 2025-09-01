@@ -13,18 +13,18 @@ const HotDeals = () => {
 
   const nextProducts = products.slice(8);
   return (
-    <div className="w-full flex flex-col font-poppins px-[200px] py-[60px] bg-[#F7F7F7]">
+    <div className="w-full flex flex-col font-poppins px-6 lg:px-[200px] py-[60px] bg-[#F7F7F7]">
       <header className="w-full flex items-center justify-between mb-3">
-        <h2 className="text-[#1A1A1A] capitalize font-bold text-[24px]">
+        <h2 className="text-[#1A1A1A] capitalize font-bold text-[16px] lg:text-[24px]">
           Hot deals
         </h2>
-        <Link className="text-[#00B207]" href={""}>
+        <Link className="text-[#00B207] text-[8px] lg:text-[12px]" href={""}>
           View all
         </Link>
       </header>
-      <div className="w-full h-[540px] flex flex-row items-center">
-        <div className="w-[40%] h-full border-[#2C742F] border-[1px] shadow-[#20B52652] p-[24px] bg-[#FFFFFF]">
-          <div className="w-full h-2/3 relative flex flex-col">
+      <div className="w-full lg:h-[540px] flex flex-col lg:flex-row items-center">
+        <div className="w-full lg:w-[40%] h-full border-[#2C742F] border-[1px] shadow-[#20B52652] p-[24px] bg-[#FFFFFF]">
+          <div className="w-full h-[540px] lg:h-2/3 relative flex flex-col">
             <Image
               src={"/images/hot-deal.png"}
               alt={"apple fruit"}
@@ -77,14 +77,14 @@ const HotDeals = () => {
             <Countdown className="text-[14px] text-[#1A1A1A] font-bold" id="font-medium text-[#999999] text-[10px] uppercase"  />
           </div>
         </div>
-        <div className="w-[60%] h-full">
+        <div className="lg:w-[60%] lg:h-full w-full">
           <Product
-            className="grid grid-rows-2 grid-cols-3"
+            className="grid lg:grid-rows-2 lg:grid-cols-3 grid-cols-2 grid-rows-3"
             products={slicedProducts}
           />
         </div>
       </div>
-      <Product products={nextProducts} className="w-full grid grid-cols-5 " />
+      <Product products={nextProducts} className="w-full grid lg:grid-cols-5 grid-cols-2" />
     </div>
   );
 };

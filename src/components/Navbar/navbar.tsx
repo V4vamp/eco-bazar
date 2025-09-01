@@ -10,6 +10,7 @@ import { BsHandbag } from "react-icons/bs";
 import { VscChevronDown } from "react-icons/vsc";
 import { TbPhoneCall } from "react-icons/tb";
 import { products } from "@/data/products";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const NavBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,25 +33,25 @@ const NavBar = () => {
   };
 
   const handleSearch = () => {
-    const filteredProducts = products.filter(product =>
+    const filteredProducts = products.filter((product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     console.log("Search results:", filteredProducts);
   };
   return (
     <nav className="w-full bg-[#FFFFFF] flex flex-col fixed z-40">
-      <div className="w-full flex flex-row items-center px-[200px] justify-between py-[12px] shadow-[0px_1px_0px_0px_#E5E5E5]">
+      <div className="w-full flex flex-row items-center px-2 lg:px-[200px] justify-between py-[12px] shadow-[0px_1px_0px_0px_#E5E5E5]">
         <div className="flex flex-row gap-1 items-center">
           <IoLocationOutline color="#666666" size={15} />
-          <p className="text-[12px] text-[#666666] font-poppins">
+          <p className="text-[8px] lg:text-[12px] text-[#666666] font-poppins">
             Store Location: Lincoln- 344, Illinois, Chicago, USA
           </p>
         </div>
         <div
-          className="flex flex-row gap-4 items-center text-[12px] text-[#666666]"
+          className="flex flex-row gap-4 items-center text-[8px] lg:text-[12px] text-[#666666]"
           style={{ fontFamily: "Poppins" }}
         >
-          <div className="flex flex-row gap-2 border-r-1 border-r-[#E5E5E5] pr-4">
+          <div className="flex flex-col lg:flex-row gap-2 border-r-1 border-r-[#E5E5E5] pr-4">
             <select>
               <option value="">Eng</option>
               <option value="">Esn</option>
@@ -67,17 +68,32 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-row items-center px-[200px] justify-between py-[24px]">
-        <Link href={"/"} className="flex flex-row items-center gap-2">
+      <div className="w-full flex flex-col lg:flex-row items-center px-6 lg:px-[200px] gap-2 lg:justify-between py-[24px]">
+        <Link
+          href={"/"}
+          className="hidden lg:flex flex-row items-center gap-2 "
+        >
           <Image src={"/images/Logo.png"} alt="logo" width={32} height={32} />
           <h1 className="text-[24px] text-[#000000] font-500 font-poppins">
             EcoBazar
           </h1>
         </Link>
-        <div className="flex flex-row items-center gap-2 border-[#E5E5E5] border-[1px] rounded-[6px] h-[32px] pl-[16px] font-poppins">
+        <div className="w-full lg:w-auto flex flex-row items-center gap-2 border-[#E5E5E5] border-[1px] rounded-[6px] h-[32px] pl-[16px] font-poppins">
           <CiSearch size={15} color="#1A1A1A" />
-          <input onChange={handleSearchInput} name="searchTerm" value={searchTerm} className=" placeholder:text-[#808080] placeholder:text-[12px] outline-0 text-[#333] text-[16px]" type="text" placeholder="Search" />
-          <button onClick={handleSearch} className="bg-[#00B207] text-[#FFFFFF] font-600 text-[14px] h-[32px] px-[16px] rounded-[0px_6px_6px_0px] cursor-pointer">Search</button>
+          <input
+            onChange={handleSearchInput}
+            name="searchTerm"
+            value={searchTerm}
+            className=" placeholder:text-[#808080] placeholder:text-[12px] outline-0 text-[#333] text-[16px] w-2/3 lg:w-auto"
+            type="text"
+            placeholder="Search"
+          />
+          <button
+            onClick={handleSearch}
+            className="bg-[#00B207] text-[#FFFFFF] font-600 text-[14px] h-[32px] px-[16px] rounded-[0px_6px_6px_0px] cursor-pointer"
+          >
+            Search
+          </button>
         </div>
         <div className="flex flex-row items-center gap-4">
           <span>
@@ -98,21 +114,58 @@ const NavBar = () => {
           </span>
         </div>
       </div>
-      <div className="w-full bg-[#333333] flex flex-row items-center justify-between px-[200] py-[16px]">
-        <div className="flex flex-row items-center gap-[32px] font-poppins text-gray-500 text-[14px]">
-          <Link className="hover:text-[#FFFFFF] flex items-center gap-2" href={"/"}>Home <VscChevronDown /></Link>
-          <Link className="hover:text-[#FFFFFF] flex items-center gap-2" href={"/Shop"}>Shop <VscChevronDown /></Link>
-          <Link className="hover:text-[#FFFFFF] flex items-center gap-2" href={""}>Pages <VscChevronDown /></Link>
-          <Link className="hover:text-[#FFFFFF] flex items-center gap-2" href={""}>Blog <VscChevronDown /></Link>
-          <Link className="hover:text-[#FFFFFF]" href={""}>About Us</Link>
-          <Link className="hover:text-[#FFFFFF]" href={""}>Contact Us</Link>
-        </div>
-        <div className="flex flex-row gap-[8px] font-poppins font-500 text-[14px] items-center text-[#FFFFFF]">
-          <TbPhoneCall size={24} />
-          <Link href={"(219) 555-0114"}>
-          (219) 555-0114
+      <div className="w-full bg-[#333333] hidden lg:flex flex-row items-center justify-between px-[200] py-[16px]">
+        <div className="hidden lg:flex flex-row items-center gap-[32px] font-poppins text-gray-500 text-[14px]">
+          <Link
+            className="hover:text-[#FFFFFF] flex items-center gap-2"
+            href={"/"}
+          >
+            Home <VscChevronDown />
+          </Link>
+          <Link
+            className="hover:text-[#FFFFFF] flex items-center gap-2"
+            href={"/Shop"}
+          >
+            Shop <VscChevronDown />
+          </Link>
+          <Link
+            className="hover:text-[#FFFFFF] flex items-center gap-2"
+            href={""}
+          >
+            Pages <VscChevronDown />
+          </Link>
+          <Link
+            className="hover:text-[#FFFFFF] flex items-center gap-2"
+            href={""}
+          >
+            Blog <VscChevronDown />
+          </Link>
+          <Link className="hover:text-[#FFFFFF]" href={""}>
+            About Us
+          </Link>
+          <Link className="hover:text-[#FFFFFF]" href={""}>
+            Contact Us
           </Link>
         </div>
+        
+        <div className="hidden lg:flex flex-row gap-[8px] font-poppins font-500 text-[14px] items-center text-[#FFFFFF]">
+          <TbPhoneCall size={24} />
+          <Link href={"(219) 555-0114"}>(219) 555-0114</Link>
+        </div>
+      </div>
+      <div className="w-full bg-[#333] flex items-center justify-between px-4 py-3 lg:hidden">
+        <Link
+          href={"/"}
+          className="lg:hidden flex flex-row items-center gap-2 "
+        >
+          <Image src={"/images/Logo.png"} alt="logo" width={24} height={24} />
+          <h1 className="text-[20px] text-[#FFF] font-medium font-poppins">
+            EcoBazar
+          </h1>
+        </Link>
+        <span>
+          <GiHamburgerMenu />
+        </span>
       </div>
     </nav>
   );

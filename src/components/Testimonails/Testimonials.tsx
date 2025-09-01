@@ -7,9 +7,9 @@ import { StarRating } from "../StarRating/Star";
 
 const Testimonials = () => {
   return (
-    <div className="w-full bg-[#F2F2F2] flex flex-col gap-4 px-[200px] py-[60px] font-poppins">
+    <div className="w-full bg-[#F2F2F2] flex flex-col gap-4 px-6 lg:px-[200px] py-[60px] font-poppins">
       <header className="w-full flex items-center justify-between">
-        <h2 className="font-semibold text-[24px] text-[#1A1A1A]">
+        <h2 className="font-semibold text-[16px] lg:text-[24px] text-[#1A1A1A]">
           Client Testimonials
         </h2>
         <div className="flex items-center gap-3">
@@ -21,7 +21,7 @@ const Testimonials = () => {
           </span>
         </div>
       </header>
-      <div className="w-full grid grid-cols-3 gap-6 ">
+      <div className="w-full grid lg:grid-cols-3 gap-6 ">
         {testimonials.map((test) => (
           <div
             key={test.id}

@@ -10,19 +10,19 @@ const Popular = () => {
   const slicdedProducts = products.slice(0, 10)
 
   return (
-    <div className="w-full flex flex-col gap-4 font-poppins px-[200px]">
+    <div className="w-full flex flex-col gap-4 font-poppins px-4 lg:px-[200px]">
       <header className="w-full flex justify-between items-center">
-        <h1 className="text-[#1A1A1A] text-[24px] font-bold">
+        <h1 className="text-[#1A1A1A] text-[16px] lg:text-[24px] font-bold">
           Popular Products
         </h1>
         <Link
-          className="text-[12px] text-[#00B207] font-medium flex flex-row items-center gap-2"
+          className="text-[10px] lg:text-[12px] text-[#00B207] font-medium flex flex-row items-center gap-2"
           href={"/products"}
         >
           View All <IoIosArrowRoundForward size={16} />
         </Link>
       </header>
-      <Product className="grid grid-rows-2 grid-cols-5" products={slicdedProducts} />
+      <Product className="grid grid-rows-5 grid-cols-2 lg:grid-rows-2 lg:grid-cols-5" products={slicdedProducts} />
     </div>
   );
 };
