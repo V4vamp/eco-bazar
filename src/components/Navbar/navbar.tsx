@@ -16,6 +16,11 @@ import { useCart } from "@/contexts/CartContext";
 const NavBar = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const { cartCount, cartTotal } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
+  const handleMenuOpen = () => {
+    setIsMenuOpen((prev) => !prev);
+  }
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -99,7 +104,7 @@ const NavBar = () => {
           </Link>
           <span className="flex flex-col font-poppins gap[7px]">
             <p className="font-400 text-[#4D4D4D] text-[11px]">Shopping Cart</p>
-            <h4 className="text-[#1A1A1A] text-[14px] font-500">${cartTotal}</h4>
+            <h4 className="text-[#1A1A1A] text-[14px] font-500">${cartTotal.toFixed(2)}</h4>
           </span>
         </div>
       </div>
@@ -152,10 +157,70 @@ const NavBar = () => {
             EcoBazar
           </h1>
         </Link>
-        <span>
+        <span onClick={handleMenuOpen}>
           <GiHamburgerMenu />
         </span>
       </div>
+      {isMenuOpen && (
+        <div
+          className={`fixed inset-0 bg-black bg-opacity-40 z-50 transition-opacity duration-300 flex`}
+          onClick={handleMenuOpen}
+        >
+          <div
+            className={`bg-white w-3/4 max-w-xs h-full shadow-lg p-6 flex flex-col gap-6 transition-transform duration-300 transform ${
+              isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Link
+              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              href="/"
+              onClick={handleMenuOpen}
+            >
+              Home <VscChevronDown />
+            </Link>
+            <Link
+              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              href="/Shop"
+              onClick={handleMenuOpen}
+            >
+              Shop <VscChevronDown />
+            </Link>
+            <Link
+              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              href=""
+              onClick={handleMenuOpen}
+            >
+              Pages <VscChevronDown />
+            </Link>
+            <Link
+              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              href=""
+              onClick={handleMenuOpen}
+            >
+              Blog <VscChevronDown />
+            </Link>
+            <Link
+              className="text-[#333] text-lg font-poppins"
+              href=""
+              onClick={handleMenuOpen}
+            >
+              About Us
+            </Link>
+            <Link
+              className="text-[#333] text-lg font-poppins"
+              href=""
+              onClick={handleMenuOpen}
+            >
+              Contact Us
+            </Link>
+            <div className="flex flex-row gap-2 items-center mt-4 text-[#333]">
+              <TbPhoneCall size={20} />
+              <Link href={"(219) 555-0114"}>(219) 555-0114</Link>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

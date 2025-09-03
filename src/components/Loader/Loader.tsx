@@ -6,7 +6,7 @@ const Loader = () => {
     <div className="w-full h-screen bg-[#FFF] flex justify-center items-center">
       <div className="relative w-[100px] h-[100px] flex items-center justify-center">
         <Image
-          src="/images/logo.png"
+          src="/images/Logo.png"
           alt="Main Logo"
           width={36}
           height={36}
