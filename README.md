@@ -33,7 +33,7 @@ Eco Bazar is a modern e-commerce web application focused on eco-friendly product
 ## Deployment
 
 The application is deployed on Vercel:  
-[https://eco-bazar-demo.vercel.app](https://eco-bazar-demo.vercel.app)
+[https://bazar-shopper.vercel.app](https://bazar-shopper.vercel.app)
 
 ## User Flow
 
