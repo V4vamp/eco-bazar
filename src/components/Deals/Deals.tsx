@@ -38,7 +38,7 @@ const Deals = () => {
           </h4>
           <h2 className="font-bold text-[26px]">Low-Fat Meat</h2>
           <h3 className="font-light text-[16px]">
-            Started at <span className="text-[#FF8A00] font-medium">NGN3,700</span>
+            Started at <span className="text-[#FF8A00] font-medium">$35</span>
           </h3>
           <button className="cursor-pointer justify-center w-[100px] h-[34px] text-[#00B207] font-semibold text-[10px] flex flex-row items-center gap-1 bg-[#FFF] rounded-[40px]">
             Shop Now <IoIosArrowRoundForward size={16} />{" "}

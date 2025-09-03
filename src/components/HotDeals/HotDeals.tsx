@@ -57,8 +57,8 @@ const HotDeals = () => {
           <div className="w-full flex flex-col h-1/3 items-center justify-between mt-3">
             <p className="text-[#2C742F] text-[14px] ">Chinese Apples</p>
             <span className="flex flex-row gap-1 items-center text-[16px] font-medium">
-              <h4 className="text-[#1A1A1A]">NGN3,400</h4>
-              <h4 className="line-through text-[#999999]">NGN5,100</h4>
+              <h4 className="text-[#1A1A1A]">$40</h4>
+              <h4 className="line-through text-[#999999]">$50</h4>
             </span>
             <div className="flex gap-1 items-center">
               {Array.from({ length: 5 }).map((_, i) => (

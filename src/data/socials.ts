@@ -5,7 +5,7 @@ type Social = {
     link: string;
 }
 
-export const socials = [
+export const socials: Social[] = [
     {
         id: 1,
         name: "Instagram",

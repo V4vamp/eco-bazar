@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,22 +11,11 @@ import { VscChevronDown } from "react-icons/vsc";
 import { TbPhoneCall } from "react-icons/tb";
 import { products } from "@/data/products";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useCart } from "@/contexts/CartContext";
 
 const NavBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [cartCount, setCartCount] = useState(0);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("cart");
-    if (stored) {
-      const cart = JSON.parse(stored);
-      // 🔹 If you want total number of unique items:
-      setCartCount(cart.length);
-
-      // 🔹 If you want total quantity of all items:
-      // setCartCount(cart.reduce((sum: number, item: any) => sum + item.quantity, 0));
-    }
-  }, []);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const { cartCount, cartTotal } = useCart();
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -53,9 +42,9 @@ const NavBar = () => {
         >
           <div className="flex flex-col lg:flex-row gap-2 border-r-1 border-r-[#E5E5E5] pr-4">
             <select>
-              <option value="">Eng</option>
-              <option value="">Esn</option>
-              <option value="">Frn</option>
+              <option value="">ENG</option>
+              <option value="">ESP</option>
+              <option value="">FRN</option>
             </select>
             <select name="" id="">
               <option value="">NGN</option>
@@ -110,7 +99,7 @@ const NavBar = () => {
           </Link>
           <span className="flex flex-col font-poppins gap[7px]">
             <p className="font-400 text-[#4D4D4D] text-[11px]">Shopping Cart</p>
-            <h4 className="text-[#1A1A1A] text-[14px] font-500">NGN3,900</h4>
+            <h4 className="text-[#1A1A1A] text-[14px] font-500">${cartTotal}</h4>
           </span>
         </div>
       </div>

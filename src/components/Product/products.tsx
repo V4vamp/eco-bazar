@@ -1,11 +1,12 @@
 "use client";
 
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BsHandbag } from "react-icons/bs";
 import { PiEyeThin } from "react-icons/pi";
 import Image from "next/image";
+import { useCart } from "@/contexts/CartContext";
 
 type Product = {
   id: number;
@@ -24,39 +25,6 @@ type ProductProps = {
 
 const Product = ({products, className }: ProductProps) => {
   const [isHovered, setIsHovered] = useState<number | null>(null);
-  const [favorites, setFavorites] = useState<number[]>([]);
-  const [cart, setCart] = useState<{ id: number; quantity: number }[]>([]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("cart");
-    if (stored) {
-      setCart(JSON.parse(stored));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
-  const addToCart = (productId: number) => {
-    const product = products.find((p) => p.id === productId);
-    if (!product) return;
-    setCart((prev) => {
-      const existing = prev.find((item) => item.id === productId);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === productId
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...prev, { id: productId, quantity: 1, price: product.price }];
-      }
-    });
-  };
-
-  const isInCart = (productId: number) =>
-    cart.some((item) => item.id === productId);
 
   const handleMouseEnter = (index: number) => {
     setIsHovered(index);
@@ -66,27 +34,17 @@ const Product = ({products, className }: ProductProps) => {
     setIsHovered(null);
   };
 
-  useEffect(() => {
-    const stored = localStorage.getItem("favorites");
-    if (stored) {
-      setFavorites(JSON.parse(stored));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
-
-  const toggleFavorite = (id: number) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
-    );
-  };
+  const {
+    addToCart,
+    toggleFavorite,
+    isInCart,
+    isFavorited,
+  } = useCart();
 
   return (
     <div className={className}>
       {products.map((product, index) => {
-        const isFavorited = favorites.includes(product.id);
+        const favorited = isFavorited(product.id);
         const inCart = isInCart(product.id);
         return (
           <div
@@ -106,7 +64,7 @@ const Product = ({products, className }: ProductProps) => {
                 <button
                   onClick={() => toggleFavorite(product.id)}
                   className={`flex justify-center items-center w-[36px] h-[36px] text-[#1A1A1A] ${
-                    isFavorited
+                    favorited
                       ? "bg-red-500 text-gray-50"
                       : "bg-[#FFFFFF] border-[#F2F2F2] border-[1px] hover:text-red-500"
                   } rounded-full`}
@@ -135,7 +93,7 @@ const Product = ({products, className }: ProductProps) => {
                 </h3>
                 <div className="flex items-center gap-2">
                   <span className="text-green-600 font-semibold">
-                    NGN{product.price.toFixed(2)}
+                    ${product.price.toFixed(2)}
                   </span>
                   {product.oldPrice && (
                     <span className="line-through text-gray-400 text-sm">
@@ -159,7 +117,7 @@ const Product = ({products, className }: ProductProps) => {
                 </div>
               </div>
               <button
-                onClick={() => addToCart(product.id)}
+                onClick={() => addToCart(product)}
                 className={`absolute text-[#1A1A1A] bottom-2 right-2 bg-gray-100 ${
                   inCart
                     ? "bg-green-600 text-white"

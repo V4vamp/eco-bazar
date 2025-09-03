@@ -16,7 +16,7 @@ type TimeProps = {
 
 const Countdown = ({ className, id }: TimeProps ) => {
   const calculateTimeLeft = (): TimeLeft => {
-    const difference = +new Date("2025-08-31T00:00:00") - +new Date();
+    const difference = +new Date("2025-09-25T00:00:00") - +new Date();
     let timeLeft: TimeLeft = {
       days: 0,
       hours: 0,
