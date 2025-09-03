@@ -18,7 +18,7 @@ Eco Bazar is a modern e-commerce web application focused on eco-friendly product
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/eco-bazar.git
+    git clone https://github.com/V4vamp/eco-bazar.git
     ```
 2. Install dependencies:
     ```bash
