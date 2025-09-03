@@ -21,6 +21,7 @@ export const categories = [
     },
     {
         category: "Beverages",
+        domain: "beverages",
         imgUrl: "/images/cat-5.png"
     },
     {

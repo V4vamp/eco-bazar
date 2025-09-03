@@ -163,7 +163,7 @@ const NavBar = () => {
       </div>
       {isMenuOpen && (
         <div
-          className={`fixed inset-0 bg-black bg-opacity-40 z-50 transition-opacity duration-300 flex`}
+          className={`fixed inset-0 bg-black bg-opacity-40 z-50 transition-opacity duration-300 flex h-[screen] text-[12px]`}
           onClick={handleMenuOpen}
         >
           <div
@@ -173,42 +173,42 @@ const NavBar = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <Link
-              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              className="text-[#333] font-poppins flex items-center gap-2"
               href="/"
               onClick={handleMenuOpen}
             >
               Home <VscChevronDown />
             </Link>
             <Link
-              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              className="text-[#333] font-poppins flex items-center gap-2"
               href="/Shop"
               onClick={handleMenuOpen}
             >
               Shop <VscChevronDown />
             </Link>
             <Link
-              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              className="text-[#333] font-poppins flex items-center gap-2"
               href=""
               onClick={handleMenuOpen}
             >
               Pages <VscChevronDown />
             </Link>
             <Link
-              className="text-[#333] text-lg font-poppins flex items-center gap-2"
+              className="text-[#333] font-poppins flex items-center gap-2"
               href=""
               onClick={handleMenuOpen}
             >
               Blog <VscChevronDown />
             </Link>
             <Link
-              className="text-[#333] text-lg font-poppins"
+              className="text-[#333] font-poppins"
               href=""
               onClick={handleMenuOpen}
             >
               About Us
             </Link>
             <Link
-              className="text-[#333] text-lg font-poppins"
+              className="text-[#333] font-poppins"
               href=""
               onClick={handleMenuOpen}
             >

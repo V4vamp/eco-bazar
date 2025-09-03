@@ -61,37 +61,37 @@ const Page = () => {
       <main className="w-full flex flex-col mt-[250px] lg:mt-52 gap-7 pb-10">
         <header className="w-full flex items-center px-6 lg:px-[200px]">
           <Link href="/">
-            <GoHome />
+            <GoHome size={16} color="#666666" />
           </Link>
-          <MdOutlineKeyboardArrowRight />
-          <Link href="">Category</Link>
-          <MdOutlineKeyboardArrowRight />
-          <h4>{item.category}</h4>
+          <MdOutlineKeyboardArrowRight size={16} color="#666666" />
+          <Link href="" className="text-[#666666] text-[14px]">Categories</Link>
+          <MdOutlineKeyboardArrowRight size={16} color="#666666" />
+          <h4 className="text-[#20B526] text-[14px]">{item.category}</h4>
         </header>
         <div className="w-full px-6 lg:px-[200px]">
-          <div className="w-full h-[250px] rounded-[10px] overflow-hidden relative">
+          <div className="w-full h-[150px] lg:h-[250px] rounded-[10px] overflow-hidden relative">
             <Image
               src={"/images/crop.png"}
               alt="Crop Image"
               fill
               className="object-cover object-bottom transform scale-x-[-1]"
             />
-            <div className="absolute w-full h-full px-8 flex flex-col justify-center items-start gap-2">
-              <p className="uppercase text-[12px]">Best deals</p>
+            <div className="absolute w-full h-full px-2 lg:px-8 flex flex-col justify-center items-start gap-1 lg:gap-2">
+              <p className="uppercase text-[8px] lg:text-[12px]">Best deals</p>
               <div className="w-full flex gap-8 items-center">
-                <h2 className="font-bold text-[32px] text-[#FFFFFF]">
+                <h2 className="font-bold text-[16px] lg:text-[32px] text-[#FFFFFF]">
                   Sale of the Month
                 </h2>
-                <span className="w-[55px] h-[55px] bg-[#FF8A00] flex flex-col justify-center items-center rounded-full font-bold text-[16px]">
+                <span className="w-[32px] h-[32px] lg:w-[55px] lg:h-[55px] bg-[#FF8A00] flex flex-col justify-center items-center rounded-full font-bold text-[12px] lg:text-[16px]">
                   56%
-                  <p className="uppercase p-0 m-0 font-normal text-[10px]">
+                  <p className="uppercase p-0 m-0 font-normal text-[8px] lg:text-[10px]">
                     off
                   </p>
                 </span>
               </div>
               <Countdown
-                className="text-[#00B207] font-medium"
-                id="text-[#808080] uppercase text-[10px]"
+                className="text-[#00B207] font-medium text-[12px] lg:text-[16px]"
+                id="text-[#808080] uppercase text-[8px] lg:text-[10px]"
               />
               <button className="bg-[#00B207] rounded-[43] text-[12px] py-1 px-3 font-medium cursor-pointer">
                 Shop Now
@@ -99,12 +99,12 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-between items-center px-6 lg:px-[200px]">
-          <div className="flex items-center gap-3">
-            <span className="p-1 rounded-[4px] border-[1px] border-[#E5E5E5] text-[#4D4D4D] text-[12px] flex items-center gap-2">
-              Select Category
-              <select className="w-[75px] outline-none" name="" id="">
-                <option value="">Select</option>
+        <div className="w-full flex flex-col lg:flex-row justify-between items-center px-6 lg:px-[200px]">
+          <div className="flex flex-col lg:flex-row items-center gap-3 sm:w-full mb-5">
+            <span className="p-1 rounded-[4px] border-[1px] border-[#E5E5E5] text-[#4D4D4D] text-[12px] flex items-center gap-2 sm:w-full">
+              Select Category:
+              <select className="lg:w-[75px] outline-none" name="" id="">
+                <option value=""></option>
                 {categories.map((it, idx) => (
                   <option key={idx} value="">
                     {it.category}
@@ -112,15 +112,15 @@ const Page = () => {
                 ))}
               </select>
             </span>
-            <span className="p-1 rounded-[4px] border-[1px] border-[#E5E5E5] text-[#4D4D4D] text-[12px] flex items-center gap-2">
-              Select Price
-              <select className="w-[75px] outline-none" name="" id="">
+            <span className="p-1 rounded-[4px] border-[1px] border-[#E5E5E5] text-[#4D4D4D] text-[12px] flex items-center gap-2 sm:w-full">
+              Select Price:
+              <select className="lg:w-[75px] outline-none" name="" id="">
                 <option value=""></option>
               </select>
             </span>
-            <span className="p-1 rounded-[4px] border-[1px] border-[#E5E5E5] text-[#4D4D4D] text-[12px] flex items-center gap-2">
-              Select Rating
-              <select className="w-[75px] outline-none" name="" id="">
+            <span className="p-1 rounded-[4px] border-[1px] border-[#E5E5E5] text-[#4D4D4D] text-[12px] flex items-center gap-2 sm:w-full">
+              Select Rating:
+              <select className="lg:w-[75px] outline-none" name="" id="">
                 {[0,1,2,3,4,5].map((it, idx) => (
                   <option key={idx} value="">
                     {it}
@@ -153,10 +153,10 @@ const Page = () => {
           </div>
           <span>0 Results found.</span>
         </div>
-        <div className="w-full px-[200px]">
+        <div className="w-full px-6 lg:px-[200px]">
           <Product
             products={currentRows}
-            className="w-full grid grid-cols-4 gap-4"
+            className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4"
           />
         </div>
         <div className="w-full flex justify-center items-center gap-2">
